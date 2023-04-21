@@ -5,7 +5,7 @@
 | Briefing (15 min presentation + 5 min Q&A) OR Report ([github pages](https://github.mit.edu/rss/website2021)) | Wednesday, May 10th at 1:00PM EST (presentation time TBA) |
 | [Team Member Assessment](https://forms.gle/5npgrmk8mjdRGGcL7)  | Wednesday, May 10th at 11:59PM EST |
 
-# Final Challenge 2022
+# Final Challenge 2023
 
 
 ## Introduction
@@ -14,7 +14,7 @@ Congratulations on completing the six labs of RSS!
 
 This semester, you've learned how to implement real-time robotics software on a widely-used software framework (ROS). You know how to read sensor data (LIDAR, Camera, Odometry) and convert it into a useful representation of the world (homography, localization). You've written algorithms which make plans over the world's state (parking, line following, path planning) and couple with controllers (PD control, pure pursuit) to accomplish tasks. 
 
-Now, your team will synthesize all that you've learned to design a competitive entry for the *2022 RSS Final Challenge*! 
+Now, your team will synthesize all that you've learned to design a competitive entry for the *2023 RSS Final Challenge*! 
 
 ## Introduction
 In a world far, far away...
