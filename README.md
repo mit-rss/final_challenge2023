@@ -51,7 +51,15 @@ As you can see from this grading scheme, it is possible to receive bonus points 
 
 ### Part B: City Driving
 
-Coming soon! :-)
+Part B is worth 25% of your Final Challenge technical grade. Your grade will be calculated based on timed completion through the course (`best_city_time`, in seconds) and the number of `penalties` you incur as follows:
+
+`Part B grade = min(100 + (45 - best_city_time), 110) - penalties`
+
+`penalties = 5 * num_collisions + 10 * traffic_infractions + 10 * manual_assist`
+
+And `num_collisions` is the number of times the car collides with anything in the city (ie. buildings, bricks, road signs), `traffic_infractions` is the number of times the car passes a stop sign without coming to a full stop or stops at a non-stop sign, and `manual_assist` is the number of maneuvers (counted individually for turning a corner, stopping at a stop sign, resetting a car, etc.) that required manual teleop intervention.
+
+As with Part A, it is possible to receive bonus points for a fast implementation, yet it is important to prioritize the accuracy of the maneuvers. The **maximum speed of your car should be 1 m/s**. However, operating at maximum speed for your entire run will be very challenging for this task. You should start slow and conduct tests to select an appropriate target speed for your car. To receive full credit over this ~15 meter course, you will need to cover an average of around .5 m/s (but this value will be calibrated by our staff solution completion speed). Additionally, the formula for calculating score and penalty values may change for fairness. (Less penalty for timing issues, depending on how things go).
 
 ### Part C: Rainbow Road [EXTRA CREDIT]
 
@@ -104,7 +112,49 @@ Please note that Hough Transforms will very likely be useful; helpful resources 
 
 ## Part B: City Driving
 
-Coming very soon! :-)
+
+### Environment and Task
+
+
+The City Driving challenge will take place in the "MiniCity" course set up in the center of the Johnson track.
+
+The configuration of the final MiniCity was meant to be kept a secret until Race Day (the Em-tire is keeping your racecar locked inside the arena until you race!), though you have seen from leaked images that the following elements are present:
+- buildings of different sizes
+- stop signs
+- other road signs
+- red bricks
+
+Additionally, a torn up map has been recovered to help you navigate the city, but at the current moment is still being put together, and will be given to you soon.
+
+Your job, after finishing your race successfully, to drive from the start of the course out of the city and through the Rainbow Road (part C). You will have access to the map mentioned above, and your race car must have the ability to localize itself and plan a path to the exits in order to escape. Your car may also need to stop for gas, before it fully escapes. You have also been warned that stop signs must be observed and the car must come to a full stop or else the Em-tire will get angry! Other road signs, however, you may not stop at and will be penalized for doing so. For some reason, there are also a large number of red bricks lying around the city--be careful your car does not recognize these as stop signs; otherwise, you might not get out in time!
+
+<!-- <img src="media/final_race.PNG" width="300" /> -->
+<img src="media/city_driving.png" width="400" />
+
+The Em-tire, in their infinite wisdom and with their love of buzz words, has already created a ~ machine learning ~ based stop sign detector for you (located in /city_driving)! It not only tells you if there's a stop sign, but where in your image the stop sign is (nifty!). If you don't use it, the Em-tire will be mad that their hard work went to waste, but you are free to modify the code for the detector and add higher level logic to take advantage of it.
+
+
+
+### Clarifications
+
+- The bricks will not be in the way of the robot. They will just be visual distractors that will make stop sign detection more difficult than simply color segmentation.
+
+- By "stop for gas", we mean that you will need to be able to plan a path or a sequence of paths in a specified coordinate or location is included in your path. 
+
+- The specific map will be released within a few days, by 4/28, but for now think of a general strategy for accomplishing these tasks, and ways to test with the resources available at the current moment.
+
+### Tips
+
+The City Driving Challenge is meant to be open-ended. You should make use of whatever techniques you believe will best solve the problem.
+
+Here are some things you may consider in developing your approach:
+
+- How do you implement the high-level logic that puts together localization, path-planning, stop sign detection, and collision avoidance?
+  - Perhaps a state machine would be helpful--how would you connect the different tasks?
+- How should the speed of your car be adjusted as you detect a stop sign, decide it is close enough, and turn corners?
+- The stop sign detector is good, but not perfect. How might you account for this for robust city navigation?
+
+As always, your safety controller should be turned on for this portion of the Final Challenge as well, although the city will not damage the car should you collide with anything.
 
 ## Part C: Rainbow Road [EXTRA CREDIT]
 
@@ -132,6 +182,7 @@ These speeds are measured in ERPM. The conversion factor is 4614 ERPM per m/s (t
 
 Note that this does not change the max speed of the joystick. If you want the joystick to command a higher speed change the scale parameter for drive.speed in this file: https://github.com/mit-racecar/racecar/blob/master/racecar/config/racecar-v2/joy_teleop.yaml. The scale parameter multiples the joystick output which is in the range [−1,1] to produce a speed. Similar to above, within the 'config' folder in the base package, you can find joy_teleop.yaml. The full path is: /home/racecar/racecar_ws/src/base/racecar/racecar/config/racecar_v2/vesc.yaml
 
+
 ## FAQ
 
 ### Part A: Final Race
@@ -147,7 +198,21 @@ Note that this does not change the max speed of the joystick. If you want the jo
 
 ### Part B: City Driving Challenge
 
-Will be updated soon!
+*How many stop signs will there be on race day?* 
+* Two
+
+*How far should the car stop before the stop sign?*
+* The front of your car must stop between .75-1 meters in front of the stop sign to receive credit for the stop. On race day, there will be tape on the ground so we can check if your car has stopped at the correct distance. Stop signs will all be the same size as the ones at lab. They will always be perpendicular to the road and not visible from other sections of the city. 
+
+*How long does the car need to stop for?*
+* There is no time requirement, but your car must come to a **full stop** (no California stops!).
+
+*Will there be anything else in the city besides buildings, red bricks, and stop signs?*
+* Yes! There will be distractor signs, etc... Your car should ignore all of these extra items!
+
+*Will we have a map of the city?*
+* Yes, the map will be released soon, and the staff team is currently working on a way to test out your algorithm in simulation rather than having to wait for the city to be set up!
+
 
 ### Part C: Rainbow Road Challenge
 
