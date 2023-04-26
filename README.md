@@ -2,7 +2,7 @@
 |---------------|----------------------------------------------------------------------------|
 | Race Day | Saturday, May 13th (TIME TBD) EST |
 | Code Pushed to Github  | Saturday, May 13th 1PM EST |
-| Briefing (15 min presentation + 5 min Q&A) OR Report ([github pages](https://github.mit.edu/rss/website2021)) | Wednesday, May 10th at 1:00PM EST (presentation time TBA) |
+| Briefing (15 min presentation + 5 min Q&A) OR Report ([github pages](https://github.mit.edu/rss/website2021)) | Wednesday, May 10th at 1:00PM EST (deadline for presentation slides, briefings from 3-5pm) |
 | [Team Member Assessment](https://forms.gle/5npgrmk8mjdRGGcL7)  | Wednesday, May 10th at 11:59PM EST |
 
 # Final Challenge 2023
