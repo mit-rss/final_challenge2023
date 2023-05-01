@@ -112,12 +112,11 @@ Please note that Hough Transforms will very likely be useful; helpful resources 
 
 ## Part B: City Driving
 
-
 ### Environment and Task
 
 The City Driving challenge will take place in the "MiniCity" course set up in the center of the Johnson track.
 
-The exact configuration of the final MiniCity is kept a secret until Race Day (the Em-tire is keeping your racecar locked inside the arena until you race!), though you were able to recreate a practice course using an occupancy map you snuck out (rss_final_challenge_map.png). 
+The exact configuration (where stop signs are) of the final MiniCity is kept a secret until Race Day (the Em-tire is keeping your racecar locked inside the arena until you race!), though you were able to recreate a practice course using an occupancy map you snuck out (rss_final_challenge_map.png). 
 
 Your job, after finishing your race successfully, is to drive from the start of the course to one of the portals that will transport you to the Rainbow Road (part C). You will have access to the map mentioned above, and your race car can either use that or road lines to navigate the course. Your car can also get a bonus boost, before it fully escapes. You have also been warned that stop signs must be observed and the car must come to a full stop or else the Em-tire will get angry! 
 
@@ -144,6 +143,7 @@ Things to note:
 * Your start position will be slightly randomized within the start area (robot placed at slight angle and translation)
 * You can choose the portal you park at
 
+<img src="https://github.com/mit-rss/final_challenge2023/blob/main/city_driving/rss_map_visual.png" width="400"/>
 
 ### Tips
 
