@@ -37,17 +37,40 @@ Luckily, you're armed with your knowledge from RSS and a good SSH connection! Le
 | Briefing OR Report Grade (out of 10) | 40% |
 
 ### Part A: Final Race
-Part A is worth 35% of your Final Challenge technical grade. Your grade will be calculated based on the time your car takes to drive around the track (`best_race_split`, in seconds) as follows:
+Part B is worth 25% of your Final Challenge technical grade. You get 3 attempts and your grade is based on your best attempt out of 3. Your grade will be calculated based on timed completion through the course (best_city_time, in seconds) and the number of penalties you incur as follows. Your grade depends on what portal you exit through and what bonuses you attempt to tackle:
 
-  `Part A grade = min(100 + (50 - best_race_split), 110)  - penalties`
+Portal 1: `Part B grade = min(100 + (21.5 - best_city_time), 110) - penalties`
 
-Where `penalties` is calculated as follows:
+Portal 2: `Part B grade = min(100 + (18.5 - best_city_time), 110) - penalties`
 
-  `penalties = 15 * num_collisions + 5 * num_lane_line_breaches + 5 * num_long_breaches`
-  
-And `num_lane_line_breaches` is the number of times the car drives outside of either lane line, and `num_long_breaches` is the number of times the car has driven outside of its lane and stayed outside of the lane for greater than 3 seconds.
+Portal 3: `Part B grade = min(100 + (13 - best_city_time), 110) - penalties`
 
-As you can see from this grading scheme, it is possible to receive bonus points for a very fast and precise solution. The **maximum speed of your car should be capped at 4 m/s**; you should be able to get full points (with bonus!) with a good controller. You should, above all, prioritize avoiding collisions, and if your car leaves its lane, it should quickly recover. More information about race day can be found below in this handout.
+Indicator Variable: `R = 1` if you stay on the road, `R = 0` if you go off the road
+
+HARD bonus ending at Portal 2: 
+
+`Part B grade = min(100 + (18 + 9*R - best_city_time) + 2.5 + R*2.5, 115) - penalties`
+
+HARD bonus ending at Portal 3: 
+
+`Part B grade = min(100 + (24.5 + 9*R - best_city_time) + 2.5 + R*2.5, 115) - penalties`
+
+
+HARDER bonus ending at Portal 2:
+
+`Part B grade = min(100 + (25 + 9*R - best_city_time) + 5 + R*5, 120) - penalties`
+
+HARDER bonus ending at Portal 3: 
+
+`Part B grade = min(100 + (25 + 9*R - best_city_time) + 5 + R*5, 120) - penalties`
+
+Formula for Penalities: 
+
+`penalties = 5 * num_collisions + 10 * traffic_infractions + 10 * manual_assist`
+
+And num_collisions is the number of times the car collides with anything in the city (ie. buildings, bricks, road signs), traffic_infractions is the number of times the car passes a stop sign without coming to a full stop or stops at a non-stop sign, and manual_assist is the number of maneuvers (counted individually for turning a corner, stopping at a stop sign, resetting a car, etc.) that required manual teleop intervention.
+
+As with Part A, it is possible to receive bonus points for a fast implementation, yet it is important to prioritize the accuracy of the maneuvers. The maximum speed of your car should be 1 m/s. However, operating at maximum speed for your entire run will be very challenging for this task. You should start slow and conduct tests to select an appropriate target speed for your car. To receive full credit over this course, you will need to cover an average of around .4 m/s (but this value will be calibrated by our staff solution completion speed). Additionally, the formula for calculating score and penalty values may change for fairness. (Less penalty for timing issues, depending on how things go).
 
 ### Part B: City Driving
 
