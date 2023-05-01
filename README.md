@@ -115,33 +115,35 @@ Please note that Hough Transforms will very likely be useful; helpful resources 
 
 ### Environment and Task
 
-
 The City Driving challenge will take place in the "MiniCity" course set up in the center of the Johnson track.
 
-The configuration of the final MiniCity was meant to be kept a secret until Race Day (the Em-tire is keeping your racecar locked inside the arena until you race!), though you have seen from leaked images that the following elements are present:
-- buildings of different sizes
-- stop signs
-- other road signs
-- red bricks
+The exact configuration of the final MiniCity is kept a secret until Race Day (the Em-tire is keeping your racecar locked inside the arena until you race!), though you were able to recreate a practice course using an occupancy map you snuck out (rss_final_challenge_map.png). 
 
-Additionally, a torn up map has been recovered to help you navigate the city, but at the current moment is still being put together, and will be given to you soon.
-
-Your job, after finishing your race successfully, to drive from the start of the course out of the city and through the Rainbow Road (part C). You will have access to the map mentioned above, and your race car must have the ability to localize itself and plan a path to the exits in order to escape. Your car may also need to stop for gas, before it fully escapes. You have also been warned that stop signs must be observed and the car must come to a full stop or else the Em-tire will get angry! Other road signs, however, you may not stop at and will be penalized for doing so. For some reason, there are also a large number of red bricks lying around the city--be careful your car does not recognize these as stop signs; otherwise, you might not get out in time!
-
-<!-- <img src="media/final_race.PNG" width="300" /> -->
-<img src="media/city_driving.png" width="400" />
+Your job, after finishing your race successfully, is to drive from the start of the course to one of the portals that will transport you to the Rainbow Road (part C). You will have access to the map mentioned above, and your race car can either use that or road lines to navigate the course. Your car can also get a bonus boost, before it fully escapes. You have also been warned that stop signs must be observed and the car must come to a full stop or else the Em-tire will get angry! 
 
 The Em-tire, in their infinite wisdom and with their love of buzz words, has already created a ~ machine learning ~ based stop sign detector for you (located in /city_driving)! It not only tells you if there's a stop sign, but where in your image the stop sign is (nifty!). If you don't use it, the Em-tire will be mad that their hard work went to waste, but you are free to modify the code for the detector and add higher level logic to take advantage of it.
 
+Here are the details of the challenge:
 
+* You can leave through one of three portals (labeled on the map):
+  * For portal 1: you must stay within the road and must park in the designated area (in blue)
+    * The road will have a centerline
+    * This portal will have walls on the outside 
+  * For portals 2 and 3: you are allowed to go off road and must park in the designed area (in blue)
 
-### Clarifications
+You can also get bonus points in the following ways:
+* HARD: Swing by the bonus boost area (part of your car must go inside the yellow box) before parking at portals 2 or 3
+  * If you do this task while staying on the road on your way to the bonus boost area you get even more bonus points (but this is not a requirement)
+* HARDER: Park at portal 1 (for maximum bonus boost!) and then park at portal 2 or 3
+  * If you do this task while staying on the road on your way to portal 1 you get even more bonus points (but this is not a requirement)
 
-- The bricks will not be in the way of the robot. They will just be visual distractors that will make stop sign detection more difficult than simply color segmentation.
+Things to note: 
+* Each square on the map is 1 ft x 1 ft
+* On the github you have access to an occupancy grid file you can use for localization
+* You will also encounter stop signs at random places throughout the course, where your robot must come to a FULL STOP
+* Your start position will be slightly randomized within the start area (robot placed at slight angle and translation)
+* You can choose the portal you park at
 
-- By "stop for gas", we mean that you will need to be able to plan a path or a sequence of paths in a specified coordinate or location is included in your path. 
-
-- The specific map will be released within a few days, by 4/28, but for now think of a general strategy for accomplishing these tasks, and ways to test with the resources available at the current moment.
 
 ### Tips
 
@@ -155,6 +157,7 @@ Here are some things you may consider in developing your approach:
 - The stop sign detector is good, but not perfect. How might you account for this for robust city navigation?
 
 As always, your safety controller should be turned on for this portion of the Final Challenge as well, although the city will not damage the car should you collide with anything.
+
 
 ## Part C: Rainbow Road [EXTRA CREDIT]
 
