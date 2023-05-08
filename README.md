@@ -88,8 +88,17 @@ And num_collisions is the number of times the car collides with anything in the 
 As with Part A, it is possible to receive bonus points for a fast implementation, yet it is important to prioritize the accuracy of the maneuvers. The maximum speed of your car should be 1 m/s. However, operating at maximum speed for your entire run will be very challenging for this task. You should start slow and conduct tests to select an appropriate target speed for your car. To receive full credit over this course, you will need to cover an average of around .4 m/s (but this value will be calibrated by our staff solution completion speed). Additionally, the formula for calculating score and penalty values may change for fairness. (Less penalty for timing issues, depending on how things go).
 
 ### Part C: Rainbow Road [EXTRA CREDIT]
+Part C can add an additional 10% to your Final Challenge technical grade! Your grade will be calculated based on the number of penalties you incur as follows:
 
-Coming Soon! :-)
+Part C grade = min(100 + 2 * staff_multiplier * (5 - best_race_split), 110) - penalties
+
+Where staff_multiplier is a calibrating constant based off of the staff solution (TBA) and penalties is calculated as follows:
+
+penalties = 5 * num_lane_line_breaches + 5 * num_long_breaches
+
+And num_lane_line_breaches is the number of times the car drives outside of the Rainbow Road, and num_long_breaches is the number of times the car has driven outside of the road and stayed outside of the lane for greater than 3 seconds.
+
+The maximum speed of your car should be 1.5 m/s.
 
 **Your team will choose between completing a final briefing or report (you do not need to complete both).**
 
